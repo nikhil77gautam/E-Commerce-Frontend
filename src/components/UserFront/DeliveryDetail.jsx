@@ -95,7 +95,7 @@ const MyDeliveryForm = () => {
     try {
       console.log(userId);
       const response = await axios.post(
-        "http://localhost:5000/placeOrder",
+        "https://e-commerce-backend-h22m.onrender.com/placeOrder",
         {
           userId: userId,
           cartId: cartId,

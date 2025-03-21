@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import {token}from "../../server";
+import { token } from "../../server";
 
 const initialState = {
   processingOrder: [],
@@ -13,9 +13,8 @@ export const getProcessingOrder = createAsyncThunk(
   "/orders/status/processing",
   async () => {
     try {
-        
       const response = await axios.get(
-        "http://localhost:5000/orders/status/processing",
+        "https://e-commerce-backend-h22m.onrender.com/orders/status/processing",
         {
           headers: { Authorization: token },
         }
@@ -39,8 +38,7 @@ const getProcessingOrderSlice = createSlice({
 
       .addCase(getProcessingOrder.fulfilled, (state, action) => {
         state.loading = false;
-        state.processingOrder = action.payload.orders
-        ;
+        state.processingOrder = action.payload.orders;
         state.message = "success";
       })
       .addCase(getProcessingOrder.rejected, (state, action) => {

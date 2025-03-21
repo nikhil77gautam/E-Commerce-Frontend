@@ -22,7 +22,7 @@ const Cart = ({ cart, setCart }) => {
   const getCartDetail = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/getCart/${userId}`,
+        `https://e-commerce-backend-h22m.onrender.com/getCart/${userId}`,
         {
           headers: {
             Authorization: token || adminToken,
@@ -45,7 +45,7 @@ const Cart = ({ cart, setCart }) => {
   const updateQuantity = async (productId, quantity) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/updateCartQuantity/${productId}`,
+        `https://e-commerce-backend-h22m.onrender.com/updateCartQuantity/${productId}`,
         { quantity },
         {
           headers: {
@@ -67,7 +67,7 @@ const Cart = ({ cart, setCart }) => {
   const deleteFromCart = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/deleteFromCart/${id}`,
+        `https://e-commerce-backend-h22m.onrender.com/deleteFromCart/${id}`,
         {
           headers: {
             Authorization: token,
@@ -89,7 +89,7 @@ const Cart = ({ cart, setCart }) => {
   const removeAllProducts = async () => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/removeAllProducts/${userId}`,
+        `https://e-commerce-backend-h22m.onrender.com/removeAllProducts/${userId}`,
         {
           headers: {
             Authorization: token,
@@ -146,7 +146,7 @@ const Cart = ({ cart, setCart }) => {
                     {item.product.image && (
                       <Link to={`/cart`} className="w-full md:w-1/3">
                         <img
-                          src={`http://localhost:5000/uploads/${item.product.image}`}
+                          src={`https://e-commerce-backend-h22m.onrender.com/uploads/${item.product.image}`}
                           alt={item.product.name}
                           className="w-full h-48 object-contain cursor-pointer"
                         />

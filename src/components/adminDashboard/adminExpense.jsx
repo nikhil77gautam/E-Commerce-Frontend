@@ -22,11 +22,14 @@ const AdminExpenseDashboard = () => {
   // Fetch all expenses
   const fetchExpenses = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/getExpenses", {
-        headers: {
-          Authorization: `${adminToken}`,
-        },
-      });
+      const response = await axios.get(
+        "https://e-commerce-backend-h22m.onrender.com/getExpenses",
+        {
+          headers: {
+            Authorization: `${adminToken}`,
+          },
+        }
+      );
       console.log(response);
       setExpenses(response.data);
     } catch (error) {
@@ -39,7 +42,7 @@ const AdminExpenseDashboard = () => {
   const fetchExpenseById = async (id) => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/getExpense/${id}`,
+        `https://e-commerce-backend-h22m.onrender.com/getExpense/${id}`,
         {
           headers: {
             Authorization: `${adminToken}`,
@@ -64,11 +67,15 @@ const AdminExpenseDashboard = () => {
   // Add a new expense
   const addExpense = async () => {
     try {
-      await axios.post("http://localhost:5000/addExpense", expenseDetails, {
-        headers: {
-          Authorization: `${adminToken}`,
-        },
-      });
+      await axios.post(
+        "https://e-commerce-backend-h22m.onrender.com/addExpense",
+        expenseDetails,
+        {
+          headers: {
+            Authorization: `${adminToken}`,
+          },
+        }
+      );
       toast.success("Expense added successfully!");
       setError("");
       fetchExpenses();
@@ -83,7 +90,7 @@ const AdminExpenseDashboard = () => {
   const updateExpense = async () => {
     try {
       await axios.put(
-        `http://localhost:5000/updateExpense/${selectedExpense._id}`,
+        `https://e-commerce-backend-h22m.onrender.com/updateExpense/${selectedExpense._id}`,
         expenseDetails,
         {
           headers: {
@@ -115,11 +122,14 @@ const AdminExpenseDashboard = () => {
 
     if (result.isConfirmed) {
       try {
-        await axios.delete(`http://localhost:5000/deleteExpense/${id}`, {
-          headers: {
-            Authorization: `${token}`,
-          },
-        });
+        await axios.delete(
+          `https://e-commerce-backend-h22m.onrender.com/deleteExpense/${id}`,
+          {
+            headers: {
+              Authorization: `${token}`,
+            },
+          }
+        );
         toast.success("Expense deleted successfully!");
         setError("");
         fetchExpenses();

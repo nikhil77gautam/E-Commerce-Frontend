@@ -76,7 +76,7 @@ const OrderHistory = () => {
                       {/* Product Image */}
                       <div className="w-24 h-24 flex-shrink-0 border border-gray-200 rounded-lg overflow-hidden bg-white p-2">
                         <img
-                          src={`http://localhost:5000/uploads/${product.product.image}`}
+                          src={`https://e-commerce-backend-h22m.onrender.com/uploads/${product.product.image}`}
                           alt={product.productName}
                           className="w-full h-full object-cover"
                         />

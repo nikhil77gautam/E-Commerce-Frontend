@@ -35,7 +35,7 @@ const GetCategory = () => {
   const handleUpdateCategory = async (categoryId) => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/category/${categoryId}`,
+        `https://e-commerce-backend-h22m.onrender.com/category/${categoryId}`,
         { name: newCategoryName },
         {
           headers: {
@@ -71,11 +71,14 @@ const GetCategory = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`http://localhost:5000/category/${categoryId}`, {
-            headers: {
-              Authorization: `${adminToken || token}`,
-            },
-          });
+          await axios.delete(
+            `https://e-commerce-backend-h22m.onrender.com/category/${categoryId}`,
+            {
+              headers: {
+                Authorization: `${adminToken || token}`,
+              },
+            }
+          );
           setCategories((prev) =>
             prev.filter((category) => category._id !== categoryId)
           );
@@ -92,7 +95,7 @@ const GetCategory = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:5000/category",
+        "https://e-commerce-backend-h22m.onrender.com/category",
         { name: categoryName },
         {
           headers: {

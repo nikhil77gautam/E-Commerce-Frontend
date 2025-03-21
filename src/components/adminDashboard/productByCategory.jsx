@@ -19,7 +19,7 @@ const ProductByCategory = () => {
   const fetchProductsByCategory = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/products/category",
+        "https://e-commerce-backend-h22m.onrender.com/products/category",
         { category: category },
         {
           headers: {
@@ -91,7 +91,7 @@ const ProductByCategory = () => {
                     className="bg-white border rounded-lg p-4 shadow-lg hover:shadow-xl transition-shadow duration-300"
                   >
                     <img
-                      src={`http://localhost:5000/uploads/${product.image}`}
+                      src={`https://e-commerce-backend-h22m.onrender.com/uploads/${product.image}`}
                       alt={product.name}
                       className="h-40 w-full object-contain mb-4 rounded-md"
                     />

@@ -34,7 +34,7 @@ const OrdersList = () => {
   const updateOrderStatus = async (orderId, newStatus) => {
     try {
       await axios.put(
-        `http://localhost:5000/orders/${orderId}/status`,
+        `https://e-commerce-backend-h22m.onrender.com/orders/${orderId}/status`,
         { status: newStatus },
         {
           headers: {

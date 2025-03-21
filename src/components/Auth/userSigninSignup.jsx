@@ -36,7 +36,7 @@ const RegisterForm = () => {
     try {
       // API request for signup
       const response = await axios.post(
-        "http://localhost:5000/userSignup",
+        "https://e-commerce-backend-h22m.onrender.com/userSignup",
         formData
       );
       console.log(response);
@@ -152,10 +152,13 @@ const SignInForm = () => {
 
     try {
       // API request for signin
-      const response = await axios.post("http://localhost:5000/signin", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://e-commerce-backend-h22m.onrender.com/signin",
+        {
+          email,
+          password,
+        }
+      );
 
       const { token, user } = response.data;
       const { role, userId, name } = user;

@@ -34,8 +34,8 @@ const AllProductDetail = ({ cart, setCart }) => {
     try {
       const endpoint =
         category === "All"
-          ? "http://localhost:5000/getAllProducts"
-          : `http://localhost:5000/category/${category}`;
+          ? "https://e-commerce-backend-h22m.onrender.com/getAllProducts"
+          : `https://e-commerce-backend-h22m.onrender.com/category/${category}`;
 
       const response = await axios.get(endpoint, {
         headers: {
@@ -80,7 +80,7 @@ const AllProductDetail = ({ cart, setCart }) => {
       };
 
       const response = await axios.post(
-        "http://localhost:5000/addToCart",
+        "https://e-commerce-backend-h22m.onrender.com/addToCart",
         obj,
         {
           headers: {
@@ -149,7 +149,7 @@ const AllProductDetail = ({ cart, setCart }) => {
                   {product.image && (
                     <Link to={`/product/${product._id}`} className="w-full">
                       <img
-                        src={`http://localhost:5000/uploads/${product.image}`}
+                        src={`https://e-commerce-backend-h22m.onrender.com/uploads/${product.image}`}
                         alt={product.name}
                         className="rounded-lg w-full h-60 hover:border-x hover object-contain mb-4"
                       />

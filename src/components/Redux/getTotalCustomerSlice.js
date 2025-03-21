@@ -11,9 +11,12 @@ const initialState = {
 
 export const getTotalCustomers = createAsyncThunk("/admin/users", async () => {
   try {
-    const response = await axios.get(`http://localhost:5000/admin/users`, {
-      headers: { Authorization: adminToken },
-    });
+    const response = await axios.get(
+      `https://e-commerce-backend-h22m.onrender.com/admin/users`,
+      {
+        headers: { Authorization: adminToken },
+      }
+    );
     console.log(response);
 
     return response.data;

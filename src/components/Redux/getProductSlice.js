@@ -11,9 +11,12 @@ const initialState = {
 
 export const getProductList = createAsyncThunk("/productsList", async () => {
   try {
-    const response = await axios.get("http://localhost:5000/getAllProducts", {
-      headers: { Authorization: token || adminToken },
-    });
+    const response = await axios.get(
+      "https://e-commerce-backend-h22m.onrender.com/getAllProducts",
+      {
+        headers: { Authorization: token || adminToken },
+      }
+    );
 
     return response.data;
   } catch (error) {

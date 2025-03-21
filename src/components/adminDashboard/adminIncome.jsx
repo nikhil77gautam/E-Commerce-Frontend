@@ -23,11 +23,14 @@ const AdminIncomeManager = () => {
   // Get Income
   const fetchIncomes = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/getIncomes", {
-        headers: {
-          Authorization: `${adminToken}`,
-        },
-      });
+      const response = await axios.get(
+        "https://e-commerce-backend-h22m.onrender.com/getIncomes",
+        {
+          headers: {
+            Authorization: `${adminToken}`,
+          },
+        }
+      );
       setIncomes(response.data);
     } catch (error) {
       toast.error("Error fetching incomes");
@@ -38,7 +41,7 @@ const AdminIncomeManager = () => {
   const handleUpdateIncome = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/incomes/${editingId}`,
+        `https://e-commerce-backend-h22m.onrender.com/incomes/${editingId}`,
         { amount: amount },
         {
           headers: {
@@ -62,11 +65,14 @@ const AdminIncomeManager = () => {
   // Delete Income
   const handleDeleteIncome = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/incomes/${id}`, {
-        headers: {
-          Authorization: `${adminToken}`,
-        },
-      });
+      await axios.delete(
+        `https://e-commerce-backend-h22m.onrender.com/incomes/${id}`,
+        {
+          headers: {
+            Authorization: `${adminToken}`,
+          },
+        }
+      );
       setIncomes(incomes.filter((income) => income._id !== id));
       toast.success("Income deleted successfully");
     } catch (error) {

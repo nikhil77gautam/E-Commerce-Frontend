@@ -14,7 +14,7 @@ export const getAllOrderList = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/adminGetAllOrders",
+        "https://e-commerce-backend-h22m.onrender.com/adminGetAllOrders",
         {
           headers: { Authorization: `${token || adminToken}` },
         }

@@ -11,11 +11,14 @@ const initialState = {
 
 export const getAllCategories = createAsyncThunk("/categories", async () => {
   try {
-    const response = await axios.get("http://localhost:5000/categories", {
-      headers: {
-        Authorization: token || adminToken,
-      },
-    });
+    const response = await axios.get(
+      "https://e-commerce-backend-h22m.onrender.com/categories",
+      {
+        headers: {
+          Authorization: token || adminToken,
+        },
+      }
+    );
     console.log(response);
 
     console.log(response);

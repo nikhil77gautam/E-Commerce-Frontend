@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import {token }from "../../server";
+import { token } from "../../server";
 
 const initialState = {
   shippedOrder: [],
@@ -14,7 +14,7 @@ export const getShippedOrder = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/orders/status/shipped",
+        "https://e-commerce-backend-h22m.onrender.com/orders/status/shipped",
         {
           headers: { Authorization: token },
         }

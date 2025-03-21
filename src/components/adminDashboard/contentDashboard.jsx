@@ -46,11 +46,14 @@ const ContentDashboard = () => {
   // Fetch Income
   const fetchIncome = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/getIncomes", {
-        headers: {
-          Authorization: `${adminToken}`,
-        },
-      });
+      const response = await axios.get(
+        "https://e-commerce-backend-h22m.onrender.com/getIncomes",
+        {
+          headers: {
+            Authorization: `${adminToken}`,
+          },
+        }
+      );
       const totalIncome = response.data.reduce(
         (acc, income) => acc + income.totalAmount,
         0
@@ -64,11 +67,14 @@ const ContentDashboard = () => {
   // Fetch Expenses
   const fetchExpenses = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/getExpenses", {
-        headers: {
-          Authorization: `${adminToken}`,
-        },
-      });
+      const response = await axios.get(
+        "https://e-commerce-backend-h22m.onrender.com/getExpenses",
+        {
+          headers: {
+            Authorization: `${adminToken}`,
+          },
+        }
+      );
       const totalExpenses = response.data.reduce(
         (acc, expense) => acc + expense.amount,
         0
@@ -82,11 +88,14 @@ const ContentDashboard = () => {
   // Fetch total active customers
   const fetchTotalUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/admin/users", {
-        headers: {
-          Authorization: `${adminToken}`,
-        },
-      });
+      const response = await axios.get(
+        "https://e-commerce-backend-h22m.onrender.com/admin/users",
+        {
+          headers: {
+            Authorization: `${adminToken}`,
+          },
+        }
+      );
       setTotalUsers(response.data.length);
     } catch (error) {
       console.error("Error fetching total customers:", error);

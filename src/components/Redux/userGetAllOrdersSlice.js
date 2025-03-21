@@ -14,7 +14,7 @@ export const getuserAllOrder = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/userAllOrders/${userId}`,
+        `https://e-commerce-backend-h22m.onrender.com/userAllOrders/${userId}`,
         {
           headers: { Authorization: token || adminToken },
         }
@@ -23,7 +23,7 @@ export const getuserAllOrder = createAsyncThunk(
 
       return response.data;
     } catch (error) {
-      return { Error: error.message };  
+      return { Error: error.message };
     }
   }
 );

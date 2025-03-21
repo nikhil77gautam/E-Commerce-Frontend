@@ -39,7 +39,7 @@ const Footer = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/contact-support",
+        "https://e-commerce-backend-h22m.onrender.com/contact-support",
         formData,
         {
           headers: {

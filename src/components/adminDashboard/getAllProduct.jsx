@@ -51,11 +51,14 @@ const ProductList = () => {
       });
 
       if (result.isConfirmed) {
-        await axios.delete(`http://localhost:5000/deleteProduct/${productId}`, {
-          headers: {
-            Authorization: `${token || adminToken}`,
-          },
-        });
+        await axios.delete(
+          `https://e-commerce-backend-h22m.onrender.com/deleteProduct/${productId}`,
+          {
+            headers: {
+              Authorization: `${token || adminToken}`,
+            },
+          }
+        );
         dispatch(getProductList());
         Swal.fire("Deleted!", "The product has been deleted.", "success");
       }
@@ -116,7 +119,7 @@ const ProductList = () => {
       }
 
       await axios.put(
-        `http://localhost:5000/updateProduct/${editingProduct}`,
+        `https://e-commerce-backend-h22m.onrender.com/updateProduct/${editingProduct}`,
         form,
         {
           headers: {
@@ -207,7 +210,7 @@ const ProductList = () => {
                     <tr key={product._id} className="border-b border-gray-300">
                       <td className="py-2 px-4">
                         <img
-                          src={`http://localhost:5000/uploads/${product.image}`}
+                          src={`https://e-commerce-backend-h22m.onrender.com/uploads/${product.image}`}
                           alt={product.name}
                           className="h-16 w-16 object-cover"
                         />
@@ -254,7 +257,7 @@ const ProductList = () => {
               <div className="bg-white p-6 rounded-lg shadow-lg w-1/3 h-3/3 mx-4">
                 <h2 className="font-serif font-semibold">Product Details :</h2>
                 <img
-                  src={`http://localhost:5000/uploads/${viewProduct.image}`}
+                  src={`https://e-commerce-backend-h22m.onrender.com/uploads/${viewProduct.image}`}
                   alt={viewProduct.name}
                   className="w-full h-48 object-contain mb-4"
                 />

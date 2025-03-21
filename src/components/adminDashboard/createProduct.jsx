@@ -25,11 +25,14 @@ const CreateProduct = () => {
   // Get Category
   const fetchCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/categories", {
-        headers: {
-          Authorization: `${adminToken}`,
-        },
-      });
+      const response = await axios.get(
+        "https://e-commerce-backend-h22m.onrender.com/categories",
+        {
+          headers: {
+            Authorization: `${adminToken}`,
+          },
+        }
+      );
       console.log(response);
       setCategories(response.data || []);
     } catch (error) {
@@ -42,12 +45,16 @@ const CreateProduct = () => {
     try {
       const newProduct = { name, price, description, stock, image, category };
       console.log(newProduct);
-      await axios.post("http://localhost:5000/createProduct", newProduct, {
-        headers: {
-          Authorization: `${token}`,
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      await axios.post(
+        "https://e-commerce-backend-h22m.onrender.com/createProduct",
+        newProduct,
+        {
+          headers: {
+            Authorization: `${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
 
       // Navigate after successful submit
       navigate("/productsList");

@@ -19,7 +19,7 @@ const SupportMessages = () => {
   const fetchMessages = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5000/support-messages",
+        "https://e-commerce-backend-h22m.onrender.com/support-messages",
         {
           headers: {
             Authorization: `${adminToken}`,
@@ -49,7 +49,7 @@ const SupportMessages = () => {
       if (result.isConfirmed) {
         try {
           await axios.put(
-            `http://localhost:5000/support-messages/${id}`,
+            `https://e-commerce-backend-h22m.onrender.com/support-messages/${id}`,
             { status },
             {
               headers: {
@@ -79,11 +79,14 @@ const SupportMessages = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`http://localhost:5000/support-messages/${id}`, {
-            headers: {
-              Authorization: `${adminToken}`,
-            },
-          });
+          await axios.delete(
+            `https://e-commerce-backend-h22m.onrender.com/support-messages/${id}`,
+            {
+              headers: {
+                Authorization: `${adminToken}`,
+              },
+            }
+          );
           Swal.fire("Deleted!", "The message has been deleted.", "success");
           fetchMessages();
         } catch (error) {

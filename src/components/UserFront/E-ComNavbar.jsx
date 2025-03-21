@@ -39,7 +39,7 @@ const Navbar = ({ setData, cart }) => {
   const getCartDetail = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5000/getCart/${userId}`,
+        `https://e-commerce-backend-h22m.onrender.com/getCart/${userId}`,
         {
           headers: {
             Authorization: token,
